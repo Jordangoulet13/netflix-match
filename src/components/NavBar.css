@@ -1,17 +1,7 @@
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #e5e5e5;
-  background-color: #000;
-  padding-top: 30px;
+.t-white {
+  color: white !important;
 }
-.navbar {
-  background-color: transparent;
-  z-index: 2;
-  padding: 30px 0;
-}
-.navbar-item {
-  height: 25px;
-  width: auto;
+
+bg-white {
+  background-color: white;
 }

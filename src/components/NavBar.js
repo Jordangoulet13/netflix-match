@@ -1,34 +1,68 @@
 import React from "react";
+import Dropdown from "./Dropdown";
 import "./NavBar.css";
-
-class NavBar extends React.Component {
-  render() {
-    return (
-      <div id="app">
-        <nav
-          className="navbar is-fixed-top"
-          role="navigation"
-          aria-label="main navigation"
+import SearchBar from "./SearchBar";
+const NavBar = ({ onFormSubmit }) => {
+  return (
+    <div>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <a className="navbar-brand" href="#">
+          <img
+            src="https://cloudinary-res.cloudinary.com/image/upload/v1521663307/MiniFlix-Logo_620x180.png"
+            alt="Netflix"
+            width="112"
+            height="28"
+          />
+        </a>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
-          <div className="container">
-            <div className="navbar-brand">
-              <a className="navbar-item" href="/">
-                <img
-                  src="https://cloudinary-res.cloudinary.com/image/upload/v1521663307/MiniFlix-Logo_620x180.png"
-                  alt="Netflix"
-                  width="112"
-                  height="28"
-                />
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item active">
+              <a className="nav-link" href="#">
+                Home <span className="sr-only">(current)</span>
               </a>
-              <div className="navbar-menu">
-                <div className="navbar-end"></div>
-              </div>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">
+                Link
+              </a>
+            </li>
+            {/* <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li> */}
+            <div>
+              <Dropdown />
             </div>
-          </div>
-        </nav>
-      </div>
-    );
-  }
-}
+            <li className="nav-item">
+              <a className="nav-link disabled" href="#">
+                Disabled
+              </a>
+            </li>
+          </ul>
+          <SearchBar onFormSubmit={onFormSubmit} />
+        </div>
+      </nav>
+    </div>
+  );
+};
 
 export default NavBar;

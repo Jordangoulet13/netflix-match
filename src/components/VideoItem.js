@@ -5,9 +5,10 @@ const VideoItem = ({ video, onVideoSelect }) => {
   return (
     <div onClick={() => onVideoSelect(video)} className="column video-item">
       <img className="ui image" src={image} alt="" />
-      <div className="content">
+      <br />
+      {/* <div className="content">
         <div className="header">{video.title}</div>
-      </div>
+      </div> */}
     </div>
   );
 };

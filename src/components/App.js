@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import SearchBar from "./SearchBar";
+//import SearchBar from "./SearchBar";
 import themoviedb from "../apis/themoviedb";
 import VideoList from "./VideoList";
 import NavBar from "./NavBar";
@@ -61,7 +61,7 @@ class App extends React.Component {
       // console.log(response);
       this.setState({
         videos: response,
-        // selectedVideo: response.ITEMS,
+        selectedVideo: response.ITEMS,
       });
     });
   };
@@ -72,12 +72,13 @@ class App extends React.Component {
 
   render() {
     console.log(this.state.videos);
+    //<SearchBar onFormSubmit={this.onTermSubmit} />
     return (
       <div className="back">
         <div className="ui container ">
-          <NavBar />
-          <SearchBar onFormSubmit={this.onTermSubmit} />
-          <div className="ui grid">
+          <NavBar onFormSubmit={this.onTermSubmit} />
+
+          <div className="ui grid img-fit">
             <VideoList
               onVideoSelect={this.onVideoSelect}
               videos={this.state.videos}
