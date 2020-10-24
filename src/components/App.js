@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 //import SearchBar from "./SearchBar";
 import themoviedb from "../apis/themoviedb";
 import VideoList from "./VideoList";
 import NavBar from "./NavBar";
 document.body.style = "background: black;";
-class App extends React.Component {
-  state = { videos: [], selectedVideo: null };
 
-  callPagesLoop = async (term) => {
+const App = () => {
+  const [videos, setVideos] = useState([]);
+  const [selectedVideo, setSelectedVideo] = useState(null);
+
+  // class App extends React.Component {
+  //   state = { videos: [], selectedVideo: null };
+
+  const callPagesLoop = async (term) => {
     let counter = 1;
     const response = [];
     while (counter <= 3) {
@@ -26,7 +31,7 @@ class App extends React.Component {
     return response;
   };
 
-  onTermSubmit = async (term) => {
+  const onTermSubmit = async (term) => {
     console.log(term);
     // const response = await themoviedb.get("/search/multi", {
     //   params: {
@@ -35,7 +40,7 @@ class App extends React.Component {
     //     page: 1,
     //   }
     // });
-    const promiseResponse = this.callPagesLoop(term);
+    const promiseResponse = callPagesLoop(term);
     promiseResponse.then((result) => {
       console.log(result);
       console.log();
@@ -59,35 +64,30 @@ class App extends React.Component {
       ];
       console.log(response);
       // console.log(response);
-      this.setState({
-        videos: response,
-        selectedVideo: response.ITEMS,
-      });
+      // this.setState({
+      setVideos(response);
+      // videos: response,
+      //selectedVideo: response.ITEMS,
+      //});
     });
   };
 
-  onVideoSelect = (video) => {
-    this.setState({ selectedVideo: video });
+  const onVideoSelect = (video) => {
+    //this.setState({ selectedVideo: video });
+    setSelectedVideo(video);
   };
 
-  render() {
-    console.log(this.state.videos);
-    //<SearchBar onFormSubmit={this.onTermSubmit} />
-    return (
-      <div className="back">
-        <div className="ui container ">
-          <NavBar onFormSubmit={this.onTermSubmit} />
+  return (
+    <div className="back">
+      <div className="ui container ">
+        <NavBar onFormSubmit={onTermSubmit} />
 
-          <div className="ui grid img-fit">
-            <VideoList
-              onVideoSelect={this.onVideoSelect}
-              videos={this.state.videos}
-            />
-          </div>
+        <div className="ui grid img-fit">
+          <VideoList onVideoSelect={onVideoSelect} videos={videos} />
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default App;
