@@ -14,3 +14,8 @@
   left: 500px;
   top: 500px;
 }
+
+.adjust {
+  right: 1%;
+  margin: 5px;
+}

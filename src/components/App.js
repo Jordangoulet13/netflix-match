@@ -5,6 +5,8 @@ import themoviedb from "../apis/themoviedb";
 import VideoList from "./VideoList";
 import NavBar from "./NavBar";
 import VideoCard from "./VideoCard";
+import NextBtn from "./NextBtn";
+import PrevBtn from "./PrevBtn";
 document.body.style = "background: black;";
 
 const App = () => {
@@ -49,11 +51,21 @@ const App = () => {
   return (
     <div>
       <VideoCard selectedVideo={selectedVideo} />
+
       <div className="ui container ">
         <NavBar onFormSubmit={onTermSubmit} />
 
         <div className="ui grid img-fit">
           <VideoList onVideoSelect={onVideoSelect} videos={videos} />
+          <div
+            class="btn-group grid w-100 adjust"
+            role="group"
+            aria-label="Basic example"
+          >
+            <PrevBtn />
+            <div> ////</div>
+            <NextBtn />
+          </div>
         </div>
       </div>
     </div>
