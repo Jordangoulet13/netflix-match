@@ -58,6 +58,9 @@ const NavBar = ({ onFormSubmit }) => {
                 Disabled
               </a>
             </li>
+            <a className="nav-link disabled" href="#">
+              Log-in
+            </a>
           </ul>
           <SearchBar onFormSubmit={onFormSubmit} />
         </div>

@@ -21,6 +21,7 @@ h1 {
   padding-left: 20px;
   padding-right: 20px;
   float: right;
+  pointer-events: none;
 }
 
 .right {
@@ -29,7 +30,15 @@ h1 {
 
 .ontop {
   position: sticky;
-  left: 0px;
-  top: 0px;
-  z-index: 1;
+  left: 20px;
+  top: 20px;
+}
+
+@media only screen and (max-width: 1768px) {
+  .fadeshow1 {
+    display: none;
+  }
+}
+.move {
+  margin-right: 5px;
 }

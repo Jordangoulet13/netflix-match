@@ -40,19 +40,14 @@ const App = () => {
       setVideos(response);
     });
   };
-  const handleClick = (e) => {
-    //e.preventDefault();
-    console.log("The link was clicked.");
-  };
 
-  const onVideoSelect = (video, e) => {
+  const onVideoSelect = (video) => {
     setSelectedVideo(video);
     console.log(video);
-    handleClick(e);
   };
 
   return (
-    <div className="back">
+    <div>
       <div className="ui container ">
         <NavBar onFormSubmit={onTermSubmit} />
         <div className="ui grid img-fit">
