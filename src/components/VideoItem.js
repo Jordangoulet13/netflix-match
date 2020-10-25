@@ -1,20 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./VideoItem.css";
 
 const VideoItem = ({ video, onVideoSelect }) => {
   const [toggle, setToggle] = useState(false);
-  const [toggleDelete, setToggleDelete] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
-  const onMouseHover = (video) => {
-    setToggle(true);
-    console.log(toggle);
-  };
-
-  const mouseOut = () => {
-    setToggle(false);
-    setToggleDelete(false);
-    console.log(toggleDelete);
-  };
+  useEffect(() => {
+    window.addEventListener(
+      "resize",
+      () => {
+        const ismobile = window.innerWidth < 1200;
+        if (ismobile !== isMobile) setIsMobile(ismobile);
+      },
+      false
+    );
+  }, [isMobile]);
 
   const image = `https://image.tmdb.org/t/p/original${video.poster_path}`;
   return (
@@ -24,7 +24,11 @@ const VideoItem = ({ video, onVideoSelect }) => {
       onMouseOut={() => setToggle(false)}
       className={toggle ? "container column video-item" : "column video-item"}
     >
-      <img className="ui image zoom card-img-top" src={image} alt="" />
+      <img
+        className={isMobile ? "ui image pad " : "ui image zoom pad  "}
+        src={image}
+        alt=""
+      />
       {toggle ? <p class="card-body text-block">{video.title}</p> : <div></div>}
     </div>
   );

@@ -6,10 +6,20 @@
   max-width: 180px;
 }
 
+@media only screen and (max-width: 990px) {
+  .zoom {
+    transition: 1s;
+    z-index: 1;
+  }
+}
+
 .zoom:hover {
-  transform: scale(3);
+  transform: scale(2);
   transition: 1s;
-  z-index: 1; /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  z-index: 1;
+}
+.pad {
+  padding: 5px;
 }
 
 .text-block {

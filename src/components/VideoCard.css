@@ -28,10 +28,12 @@ h1 {
   float: right !important;
 }
 
-.ontop {
-  position: sticky;
-  left: 20px;
+.abs {
+  position: -webkit-sticky; /* Safari */
+  position: absolute !important;
+
   top: 20px;
+  left: 20px;
 }
 
 @media only screen and (max-width: 1768px) {

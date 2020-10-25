@@ -29,7 +29,7 @@ const VideoCard = ({ selectedVideo }) => {
   } else {
     const image = `https://image.tmdb.org/t/p/original${selectedVideo.poster_path}`;
     return (
-      <div className=" ontop fadeshow1">
+      <div className=" abs fadeshow1">
         {cardVisable ? (
           <div>
             <div class=" ui card" ref={vCard}>

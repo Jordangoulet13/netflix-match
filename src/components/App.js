@@ -48,10 +48,11 @@ const App = () => {
 
   return (
     <div>
+      <VideoCard selectedVideo={selectedVideo} />
       <div className="ui container ">
         <NavBar onFormSubmit={onTermSubmit} />
+
         <div className="ui grid img-fit">
-          <VideoCard selectedVideo={selectedVideo} />
           <VideoList onVideoSelect={onVideoSelect} videos={videos} />
         </div>
       </div>
