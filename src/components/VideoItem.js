@@ -29,7 +29,7 @@ const VideoItem = ({ video, onVideoSelect }) => {
         src={image}
         alt=""
       />
-      {toggle ? <p class="card-body text-block">{video.title}</p> : <div></div>}
+      {toggle ? <p class="card-body text-block">{video.title}</p> : null}
     </div>
   );
 };

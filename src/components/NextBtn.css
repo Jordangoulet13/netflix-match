@@ -6,10 +6,10 @@
   /* height: 100%; /*440px
   width: 50px; */
   position: relative;
-  margin: 20px !important;
-  width: 100% !important;
-  float: right;
-  justify-content: center;
-  border: 5px black !important;
-  left: 4%;
+  width: 90% !important;
+}
+
+.space {
+  border: 5px !important;
+  border-color: red !important;
 }

@@ -22,7 +22,7 @@ const VideoList = ({ videos, onVideoSelect }) => {
       }
     }
   });
-  return <div className="doubling eight column row lower">{renderedList}</div>;
+  return <React.Fragment>{renderedList}</React.Fragment>;
 };
 
 export default VideoList;

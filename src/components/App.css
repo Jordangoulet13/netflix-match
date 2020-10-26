@@ -4,7 +4,7 @@
 
 .img-fit {
   margin-left: 0.1rem !important;
-  margin-right: -2.1rem !important;
+  /* margin-right: -2.1rem !important;  */
   margin-top: 0 !important;
   margin-bottom: 5 !important;
 }
@@ -16,6 +16,5 @@
 }
 
 .adjust {
-  right: 1%;
-  margin: 5px;
+  margin: 0 auto;
 }

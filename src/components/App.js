@@ -54,18 +54,12 @@ const App = () => {
 
       <div className="ui container ">
         <NavBar onFormSubmit={onTermSubmit} />
-
-        <div className="ui grid img-fit">
+        <div className="ui grid doubling eight column row mt-5 mb-2">
           <VideoList onVideoSelect={onVideoSelect} videos={videos} />
-          <div
-            class="btn-group grid w-100 adjust"
-            role="group"
-            aria-label="Basic example"
-          >
-            <PrevBtn />
-            <div> ////</div>
-            <NextBtn />
-          </div>
+        </div>
+        <div class="btn-group grid w-100 adjust" role="group">
+          <PrevBtn />
+          <NextBtn />
         </div>
       </div>
     </div>

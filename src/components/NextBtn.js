@@ -4,9 +4,9 @@ const next = () => {};
 
 const NextBtn = () => {
   return (
-    <div className="w-100">
+    <div className="w-100 m-5">
       <button onClick={() => next()} className="btn"></button>
-      <button type="button" class="btn btn-default large-bg white ">
+      <button type="button" class="btn btn-default large-bg white  ">
         <span class="fas fa-angle-right"></span> Next
       </button>
     </div>
