@@ -35,8 +35,15 @@ const App = () => {
 
   const onNext = () => {
     setCounter(counter + 1);
+    const response = onTermSubmit(term, counter);
+    console.log(response);
+    console.log(counter);
+  };
+
+  const onPrev = () => {
+    setCounter(counter - 1);
     onTermSubmit(term, counter);
-    console.log("clicked");
+    console.log(counter);
   };
 
   return (
@@ -49,7 +56,7 @@ const App = () => {
           <VideoList onVideoSelect={onVideoSelect} videos={videos} />
         </div>
         <div class="btn-group grid w-100 adjust" role="group">
-          <PrevBtn />
+          <PrevBtn onButtonClick={onPrev} />
           <NextBtn onButtonClick={onNext} />
         </div>
       </div>
