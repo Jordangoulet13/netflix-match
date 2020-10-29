@@ -5,12 +5,13 @@ import "./VideoList.css";
 const VideoList = ({ videos, onVideoSelect }) => {
   let count = 0;
   console.log(videos);
-  const renderedList = videos.map((video) => {
-    if (
-      video.hasOwnProperty("poster_path") &&
-      video.poster_path != null &&
-      video.hasOwnProperty("title")
-    ) {
+  const renderedList = videos.map(
+    (video) => {
+      // if (
+      //   video.hasOwnProperty("poster_path") &&
+      //   video.poster_path != null &&
+      //   video.hasOwnProperty("title")
+      // ) {
       while (count <= 15) {
         count++;
 
@@ -23,8 +24,11 @@ const VideoList = ({ videos, onVideoSelect }) => {
         );
       }
     }
-  });
-  return <React.Fragment>{renderedList}</React.Fragment>;
+    // }
+  );
+  return (
+    <React.Fragment className="four wide column">{renderedList}</React.Fragment>
+  );
 };
 
 export default VideoList;

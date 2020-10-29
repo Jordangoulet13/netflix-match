@@ -12,7 +12,7 @@ document.body.style = "background: black;";
 const App = () => {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
-  const [counter, setCounter] = useState(1);
+  const [counter, setCounter] = useState(2);
   // const [counted, setCounted] = useState(3);
   const [term, setTerm] = useState("");
 
