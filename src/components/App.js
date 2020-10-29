@@ -5,13 +5,13 @@ import themoviedb from "../apis/themoviedb";
 import VideoList from "./VideoList";
 import NavBar from "./NavBar";
 import VideoCard from "./VideoCard";
-import NextBtn from "./NextBtn";
-import PrevBtn from "./PrevBtn";
+
 document.body.style = "background: black;";
 
 const App = () => {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
+
   const callPagesLoop = async (term) => {
     let counter = 1;
     const response = [];
@@ -33,12 +33,11 @@ const App = () => {
   const onTermSubmit = async (term) => {
     const promiseResponse = callPagesLoop(term);
     promiseResponse.then((result) => {
-      const response = [
-        ...result[0].data.results,
-        ...result[1].data.results,
-        ...result[2].data.results,
-      ];
-
+      const response = [];
+      for (let i = 0; i < result.length; i++) {
+        response.push(...result[i].data.results);
+      }
+      console.log(response);
       setVideos(response);
     });
   };
@@ -56,10 +55,6 @@ const App = () => {
         <NavBar onFormSubmit={onTermSubmit} />
         <div className="ui grid doubling eight column row mt-5 mb-2">
           <VideoList onVideoSelect={onVideoSelect} videos={videos} />
-        </div>
-        <div class="btn-group grid w-100 adjust" role="group">
-          <PrevBtn />
-          <NextBtn />
         </div>
       </div>
     </div>
