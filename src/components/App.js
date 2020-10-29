@@ -57,10 +57,10 @@ const App = () => {
         <div className="ui grid doubling eight column row mt-5 mb-2">
           <VideoList onVideoSelect={onVideoSelect} videos={videos} />
         </div>
-        <div class="btn-group grid w-100 adjust" role="group">
+        {/* <div class="btn-group grid w-100 adjust" role="group">
           <PrevBtn />
           <NextBtn />
-        </div>
+        </div> */}
       </div>
     </div>
   );
