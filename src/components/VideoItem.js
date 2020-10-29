@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./VideoItem.css";
+import altPic from "./img/alt-image.png";
 
 const VideoItem = ({ video, onVideoSelect }) => {
   const [toggle, setToggle] = useState(false);
@@ -16,18 +17,22 @@ const VideoItem = ({ video, onVideoSelect }) => {
     );
   }, [isMobile]);
 
-  const image = `https://image.tmdb.org/t/p/original${video.poster_path}`;
+  let image = altPic;
+  if (video.poster_path != null) {
+    image = `https://image.tmdb.org/t/p/original${video.poster_path}`;
+  }
+
   return (
     <div
       onClick={() => onVideoSelect(video)}
       onMouseOver={() => setToggle(true)}
       onMouseOut={() => setToggle(false)}
-      className={toggle ? "container column video-item" : "column video-item"}
+      className={toggle ? " column video-item" : "column video-item"}
     >
       <img
-        className={isMobile ? "ui image pad " : "ui image zoom pad  "}
+        className={isMobile ? "container ui image pad " : "ui image zoom pad  "}
         src={image}
-        alt=""
+        alt={altPic}
       />
       {toggle ? <p class="card-body text-block">{video.title}</p> : null}
     </div>

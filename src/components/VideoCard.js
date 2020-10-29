@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./VideoCard.css";
+import altPic from "./img/alt-image.png";
 
 const VideoCard = ({ selectedVideo }) => {
   const [cardVisable, setCardVisable] = useState(false);
@@ -24,14 +25,18 @@ const VideoCard = ({ selectedVideo }) => {
   if (!selectedVideo) {
     return <div className="move"></div>;
   } else {
-    const image = `https://image.tmdb.org/t/p/original${selectedVideo.poster_path}`;
+    let image = altPic;
+    if (selectedVideo.poster_path != null) {
+      image = `https://image.tmdb.org/t/p/original${selectedVideo.poster_path}`;
+    }
+    image = `https://image.tmdb.org/t/p/original${selectedVideo.poster_path}`;
     return (
       <div className=" abs fadeshow1">
         {cardVisable ? (
           <div>
             <div class=" ui card" ref={vCard}>
               <div class="image ">
-                <img src={image} />
+                <img src={altPic} />
               </div>
               <div class="content right">
                 <div class="header">{selectedVideo.title}</div>
