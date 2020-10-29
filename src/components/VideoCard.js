@@ -2,10 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import "./VideoCard.css";
 
 const VideoCard = ({ selectedVideo }) => {
-  console.log(selectedVideo);
   const [cardVisable, setCardVisable] = useState(false);
   let vCard = useRef(null);
-  console.log(vCard);
 
   const showCard = () => {
     setCardVisable(true);
@@ -20,7 +18,6 @@ const VideoCard = ({ selectedVideo }) => {
   };
 
   useEffect(() => {
-    console.log("I only run once");
     showCard();
   }, [selectedVideo]);
 
