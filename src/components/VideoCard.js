@@ -29,33 +29,27 @@ const VideoCard = ({ selectedVideo }) => {
     if (selectedVideo.poster_path != null) {
       image = `https://image.tmdb.org/t/p/original${selectedVideo.poster_path}`;
     }
-    image = `https://image.tmdb.org/t/p/original${selectedVideo.poster_path}`;
+
     return (
-      <div className=" abs fadeshow1">
+      <div className="" ref={vCard}>
         {cardVisable ? (
           <div>
-            <div class=" ui card" ref={vCard}>
-              <div class="image ">
-                <img src={altPic} />
+            <div class="card m-3">
+              <img class="card-img-top" src={image} alt="Card image cap" />
+              <div class="card-body">
+                <h5 class="card-title">{selectedVideo.title}</h5>
+                <p class="card-text">{selectedVideo.overview}</p>
+                <p class="card-text">
+                  <small class="text-muted">
+                    Release Date: {selectedVideo.release_date}
+                  </small>
+                </p>
+                <p class="card-text">
+                  <small class="text-muted">
+                    Rating: {selectedVideo.vote_average}
+                  </small>
+                </p>
               </div>
-              <div class="content right">
-                <div class="header">{selectedVideo.title}</div>
-                <div class="description">{selectedVideo.overview}</div>
-              </div>
-              <div class="ui two bottom attached buttons">
-                <div class="ui button">
-                  <i class="add icon"></i>
-                  Queue
-                </div>
-                <div class="ui primary button">
-                  <i class="play icon"></i>
-                  Watch
-                </div>
-              </div>
-            </div>
-            <div class="ui popup">
-              <div class="header">User Rating</div>
-              <div class="ui star rating" data-rating="3"></div>
             </div>
           </div>
         ) : null}
