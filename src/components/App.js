@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-//import SearchBar from "./SearchBar";
 import themoviedb from "../apis/themoviedb";
 import VideoList from "./VideoList";
 import NavBar from "./NavBar";
@@ -14,7 +13,6 @@ const App = () => {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [counter, setCounter] = useState(2);
-  // const [counted, setCounted] = useState(3);
   const [term, setTerm] = useState("");
 
   const onTermSubmit = async (term, counter) => {

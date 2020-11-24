@@ -26,8 +26,24 @@ const VideoCard = ({ selectedVideo }) => {
     return <div className="move"></div>;
   } else {
     let image = altPic;
+    let title = "N/A";
+    let overview = "N/A";
+    let release_date = "N/A";
+    let vote_average = "N/A";
     if (selectedVideo.poster_path != null) {
       image = `https://image.tmdb.org/t/p/original${selectedVideo.poster_path}`;
+    }
+    if (selectedVideo.release_date != null) {
+      release_date = selectedVideo.release_date;
+    }
+    if (selectedVideo.vote_average != null) {
+      vote_average = selectedVideo.vote_average;
+    }
+    if (selectedVideo.title != null) {
+      title = selectedVideo.title;
+    }
+    if (selectedVideo.overview != null) {
+      overview = selectedVideo.overview;
     }
 
     return (
@@ -37,17 +53,13 @@ const VideoCard = ({ selectedVideo }) => {
             <div class="card m-3">
               <img class="card-img-top" src={image} alt="Card image cap" />
               <div class="card-body">
-                <h5 class="card-title">{selectedVideo.title}</h5>
-                <p class="card-text">{selectedVideo.overview}</p>
+                <h5 class="card-title">{title}</h5>
+                <p class="card-text">{overview}</p>
                 <p class="card-text">
                   <small class="text-muted">
-                    Release Date: {selectedVideo.release_date}
+                    Release Date: {release_date} {"    "}
                   </small>
-                </p>
-                <p class="card-text">
-                  <small class="text-muted">
-                    Rating: {selectedVideo.vote_average}
-                  </small>
+                  <small class="text-muted">Rating: {vote_average}</small>
                 </p>
               </div>
             </div>
@@ -58,53 +70,3 @@ const VideoCard = ({ selectedVideo }) => {
   }
 };
 export default VideoCard;
-
-/* <div>
-      {cardVisable ? (
-        <div
-          class="card"
-          //   ref={(element) => {
-          //     dropdownMenu = element;
-          //   }}
-          ref={vCard}
-        >
-          <img class="card-img-top" src="" alt="Card image cap" />
-          <div class="card-body">
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-          </div>
-        </div>
-      ) : null}
-    </div> */
-
-// {menu ? (
-//   ) : null}
-// </div>
-
-// <div>
-// <div class=" ui card" ref={vCard}>
-//   <div class="image ">
-//     <img src={image} />
-//   </div>
-//   <div class="content right">
-//     <div class="header">{selectedVideo.title}</div>
-//     <div class="description">{selectedVideo.overview}</div>
-//   </div>
-//   <div class="ui two bottom attached buttons">
-//     <div class="ui button">
-//       <i class="add icon"></i>
-//       Queue
-//     </div>
-//     <div class="ui primary button">
-//       <i class="play icon"></i>
-//       Watch
-//     </div>
-//   </div>
-// </div>
-// <div class="ui popup">
-//   <div class="header">User Rating</div>
-//   <div class="ui star rating" data-rating="3"></div>
-// </div>
-// </div>
